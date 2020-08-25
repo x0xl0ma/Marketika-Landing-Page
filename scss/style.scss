@@ -1,0 +1,439 @@
+@import "normalize.scss";
+
+// === Mixins ===
+@mixin font-lato {
+  font-family: "Lato", sans-serif;
+}
+
+@mixin font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+// === / Mixins ===
+
+// === Variables ===
+$color-white: #ffffff;
+// === / Variables ===
+
+// === Common ===
+* {
+  box-sizing: border-box;
+}
+body {
+  @include font-lato;
+  color: #414141;
+}
+
+//.section-outer {
+//}
+.section-inner {
+  width: 1180px;
+  margin: 0 auto;
+}
+
+.description-item {
+  &_icon {
+    margin-bottom: 20px;
+  }
+  &_title {
+    margin-bottom: 14px;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: bold;
+    margin-top: 30px;
+  }
+  &_text {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 300;
+    color: #6c6c6c;
+  }
+}
+
+@mixin start-btn {
+  @include font-montserrat;
+  font-size: 16px;
+
+  margin: 0;
+  padding: 16px 20px;
+
+  outline: none;
+  border-radius: 4px;
+
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-main {
+  @include start-btn;
+  background: linear-gradient(to right, #fe985b, #fe4fa7);
+  color: $color-white;
+  border: none;
+
+  &:hover {
+    background: linear-gradient(to right, #fe4fa7, #fe985b);
+  }
+}
+
+.btn-secondary {
+  @include start-btn;
+  background: $color-white;
+  color: #414141;
+  border: 1px solid #414141;
+  transition: 0.2s;
+
+  &:hover {
+    color: #fe4fa7;
+    border-color: #fe4fa7;
+  }
+}
+
+.btn-free {
+  @include start-btn;
+  background: $color-white;
+  color: #414141;
+  border: none;
+}
+
+// === / Common ===
+
+// === Header ===
+.section-header {
+  color: #ffffff;
+  background: url("../img/Bitmap.png") no-repeat 50% 50%;
+  background-size: cover;
+  position: relative;
+
+  .section-inner {
+    height: 100vh;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(20, 39, 41, 0.6);
+  }
+
+  &-logo {
+    font-weight: bold;
+    font-size: 24px;
+    flex-shrink: 1;
+    padding-top: 35px;
+  }
+  &-content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+  }
+  &-wrapper {
+    margin: 0 auto;
+    &_title,
+    &_subtitle {
+      text-align: center;
+    }
+    &_title {
+      font-weight: bold;
+      font-size: 56px;
+      line-height: 60px;
+      margin-bottom: 16px;
+    }
+
+    &_subtitle {
+      @include font-montserrat;
+      font-size: 18px;
+      line-height: 32px;
+      width: 80%;
+      margin: 0 auto 44px;
+    }
+
+    &_form {
+      display: flex;
+      &-input {
+        flex: 1;
+        padding-right: 40px;
+        input {
+          @include font-montserrat;
+
+          border: none;
+          background-color: rgba(255, 255, 255, 0.25);
+          color: $color-white;
+          font-size: 16px;
+          margin: 0;
+          padding: 16px 20px;
+          outline: none;
+          border-radius: 4px;
+          width: 100%;
+          transition: 0.2s;
+
+          &::placeholder {
+            color: $color-white;
+          }
+
+          &:focus {
+            background-color: rgba(255, 255, 255, 0.5);
+          }
+        }
+      }
+    }
+  }
+}
+// === / Header ===
+
+// === Promo ===
+
+.section-promo {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.section-promo-1 {
+  display: flex;
+
+  &_content,
+  &_video {
+    flex-basis: 50%;
+  }
+
+  &_content {
+    padding-right: 90px;
+    .title {
+      font-size: 32px;
+      line-height: 51px;
+      font-weight: bold;
+      margin-bottom: 56px;
+    }
+    .description-item {
+      margin-top: 28px;
+    }
+  }
+  &_video {
+    width: 100px;
+    height: auto;
+  }
+}
+
+.section-promo-2 {
+  display: flex;
+  padding-top: 86px;
+  margin-top: 120px;
+  border-top: 1px solid #e2e2e2;
+  text-align: center;
+
+  .description-item + .description-item {
+    margin-left: 40px;
+  }
+}
+
+// === / Promo ===
+
+// === Founder ===
+.section-founder {
+  background-color: #f6fafd;
+  padding-top: 34px;
+
+  .section-inner {
+    display: flex;
+  }
+
+  &_img {
+    align-self: flex-end;
+  }
+
+  &_content {
+    align-self: center;
+    padding-left: 50px;
+
+    &-text {
+      @include font-montserrat;
+      font-size: 24px;
+      line-height: 40px;
+    }
+    &-name {
+      font-size: 24px;
+      line-height: 29px;
+      font-weight: bold;
+      padding-top: 20px;
+    }
+    &-post {
+      font-size: 20px;
+      line-height: 29px;
+    }
+  }
+}
+// === / Founder ===
+
+// === Planes ===
+.section-planes {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  text-align: center;
+
+  &_title {
+    font-size: 36px;
+    line-height: 51px;
+    font-weight: bold;
+  }
+
+  &_subtitle {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 300;
+    width: 50%;
+    margin: 0 auto 80px;
+  }
+
+  &_list {
+    display: flex;
+    justify-content: center;
+
+    &-item {
+      flex-basis: 370px;
+      padding: 60px 45px;
+
+      &_title {
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-bottom: 26px;
+      }
+
+      &_price {
+        border-bottom: 26px;
+        .count {
+          color: #fe4fa7;
+          font-size: 72px;
+          line-height: 86px;
+          font-weight: bold;
+        }
+        .month {
+          font-size: 14px;
+          line-height: 17px;
+          font-weight: bold;
+        }
+      }
+
+      &_description {
+        font-size: 16px;
+        line-height: 28px;
+        font-weight: 300;
+        margin-bottom: 50px;
+      }
+
+      &.active {
+        background-color: #f6fafd;
+      }
+    }
+  }
+}
+// === / Planes ===
+
+// === Planes ===
+.section-free {
+  color: $color-white;
+  text-align: center;
+  padding-top: 120px;
+  padding-bottom: 120px;
+
+  background: linear-gradient(to right, #fe985b, #fe4fa7);
+
+  &_title {
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 60px;
+    margin-bottom: 26px;
+  }
+
+  &_description {
+    @include font-montserrat;
+    font-size: 20px;
+    line-height: 30px;
+    width: 50%;
+    margin: 0 auto 40px;
+  }
+}
+// === / Planes ===
+
+// === / Footer ===
+.section-footer {
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  &_logo {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 30px;
+  }
+
+  &_nav {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 75px;
+    padding: 0;
+    list-style: none;
+
+    li {
+      & + li {
+        margin-left: 60px;
+      }
+      a {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 20px;
+        text-transform: uppercase;
+        color: #464646;
+        text-decoration: none;
+        transition: 0.2s;
+
+        &.active,
+        &:hover {
+          color: #fe50a6;
+        }
+      }
+    }
+  }
+
+  &_copy_and_links {
+    @include font-montserrat;
+
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    line-height: 18px;
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+.helper-links {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    & + li {
+      margin-left: 20px;
+    }
+    a {
+      color: #464646;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+// === / Footer ===
